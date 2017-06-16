@@ -14,3 +14,8 @@ Bootstrap richtig einbinden...
 
 Bootstrap selbst
 * http://getbootstrap.com/css/#grid
+
+Nutzt einen Zeichenbaren Canvas
+* https://stackoverflow.com/questions/16587961/is-there-already-a-canvas-drawing-directive-for-angularjs-out-there
+
+Ist eine Idee hinterlegt, wie das als Image erzeugt werden könnte.

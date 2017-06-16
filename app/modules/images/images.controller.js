@@ -10,5 +10,8 @@ angular.module("imagesApp.imagesModule")
 		function ($scope, $sce) {
 			$scope.sce = $sce;
 			$scope.laufzeit = 12;
+
+			$scope.AbsoluteImageUrl = "https://angularjs.org/img/AngularJS-large.png";
+			$scope.ImageFileName = "AngularJS-large.png";
 		}
 	]);

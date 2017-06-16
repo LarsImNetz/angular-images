@@ -145,7 +145,7 @@ gulp.task("copy", ["sass"], function () {
 });
 
 gulp.task("default", ["clean"], function () {
-    gulp.start("lint");
+    // gulp.start("lint");
 	// gulp.start("test");
     gulp.start("js");
     htmlReplacement.replace(env);
