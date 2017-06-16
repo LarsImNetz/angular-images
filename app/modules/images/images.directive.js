@@ -1,3 +1,4 @@
+/* eslint-disable no-negated-condition */
 /* global angular */
 
 "use strict";
@@ -13,6 +14,7 @@ angular.module("imagesApp.imagesModule")
 			restrict: "E"
 		};
 	})
+	/* Canvas bepinseln */
 	.directive("drawing", function () {
 		return {
 			restrict: "A",
@@ -43,6 +45,8 @@ angular.module("imagesApp.imagesModule")
 				});
 				element.bind("mousemove", function (event) {
 					if (drawing) {
+						var currentX = 0;
+						var currentY = 0;
 						// get current mouse position
 						if (event.offsetX !== undefined) {
 							currentX = event.offsetX;
@@ -53,6 +57,17 @@ angular.module("imagesApp.imagesModule")
 							currentY = event.layerY - event.currentTarget.offsetTop;
 						}
 
+						var draw = function(lX, lY, cX, cY) {
+							// line from
+							ctx.moveTo(lX, lY);
+							// to
+							ctx.lineTo(cX, cY);
+							// color
+							ctx.strokeStyle = "#4bf";
+							// draw it
+							ctx.stroke();
+						};
+
 						draw(lastX, lastY, currentX, currentY);
 
 						// set current coordinates to last one
@@ -61,7 +76,7 @@ angular.module("imagesApp.imagesModule")
 					}
 
 				});
-				element.bind("mouseup", function (event) {
+				element.bind("mouseup", function (/* event */) {
 					// stop drawing
 					drawing = false;
 				});
@@ -71,16 +86,6 @@ angular.module("imagesApp.imagesModule")
 					element[0].width = element[0].width;
 				}
 
-				function draw(lX, lY, cX, cY) {
-					// line from
-					ctx.moveTo(lX, lY);
-					// to
-					ctx.lineTo(cX, cY);
-					// color
-					ctx.strokeStyle = "#4bf";
-					// draw it
-					ctx.stroke();
-				}
 			}
 		};
 	});
